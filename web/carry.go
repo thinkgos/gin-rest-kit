@@ -136,9 +136,9 @@ func (cy *Carry) ShouldAutoBind(c *gin.Context, v any) error {
 	if err := cy.BindQuery(c, v); err != nil {
 		return err
 	}
-	if method := c.Request.Method; method == http.MethodPost ||
+	if method := c.Request.Method; c.Request.ContentLength > 0 && (method == http.MethodPost ||
 		method == http.MethodPut ||
-		method == http.MethodPatch {
+		method == http.MethodPatch) {
 		if err := cy.Bind(c, v); err != nil {
 			return err
 		}
