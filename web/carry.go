@@ -7,8 +7,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
-	"github.com/things-go/encoding"
-	"github.com/things-go/encoding/form"
+	"github.com/thinkgos/encoding"
+	"github.com/thinkgos/encoding/form"
 )
 
 var _ Carrier = (*Carry)(nil)
@@ -23,13 +23,13 @@ type Carry struct {
 
 func NewCarry(opts ...Option) *Carry {
 	e := encoding.New()
-	err := e.Register(encoding.MIMEQuery, &form.QueryCodec{
+	err := e.Register(encoding.Mime_Query, &form.QueryCodec{
 		Codec: form.New("json").RegisterBuiltinTypeDecoderCommaStringToSlice(),
 	})
 	if err != nil {
 		panic(fmt.Errorf("carry: 初始化Query编解码器失败. %w", err))
 	}
-	err = e.Register(encoding.MIMEURI, &form.QueryCodec{
+	err = e.Register(encoding.Mime_Uri, &form.QueryCodec{
 		Codec: form.New("json").RegisterBuiltinTypeDecoderCommaStringToSlice(),
 	})
 	if err != nil {

@@ -2,7 +2,7 @@ package web
 
 import (
 	"github.com/go-playground/validator/v10"
-	"github.com/things-go/encoding"
+	"github.com/thinkgos/encoding"
 )
 
 type Applier interface {
