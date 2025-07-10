@@ -1,4 +1,4 @@
-package webutil
+package webmid
 
 import (
 	"slices"
