@@ -22,7 +22,7 @@ func NewSkipFilter() *SkipFilter {
 }
 
 // 增加 跳过登陆验证(同时权限验证也跳过)
-func (s *SkipFilter) AddSkipAuthorize(method string, paths ...string) *SkipFilter {
+func (s *SkipFilter) AddAuthorize(method string, paths ...string) *SkipFilter {
 	for _, path := range paths {
 		v := FormatMethodUri(method, path)
 		s.authorizes.Insert(v)
@@ -32,7 +32,7 @@ func (s *SkipFilter) AddSkipAuthorize(method string, paths ...string) *SkipFilte
 }
 
 // 增加 跳过权限验证
-func (s *SkipFilter) AddSkipPermission(method string, paths ...string) *SkipFilter {
+func (s *SkipFilter) AddPermission(method string, paths ...string) *SkipFilter {
 	for _, path := range paths {
 		v := FormatMethodUri(method, path)
 		s.permissions.Insert(v)
