@@ -129,6 +129,7 @@ func (b {{$stName}}) ExistByFilter(ctx context.Context, q *{{$queryPrefix}}Exist
             Select("1").
             Scopes(funcs...).
             Scopes(b.existInnerByFilter(q)).
+            Limit(1).
             Scan(&existed).Error
     return existed, err
 }

@@ -1,6 +1,6 @@
 module github.com/thinkgos/gin-rest-kit/cmd/gin-gen
 
-go 1.24
+go 1.25
 
 require (
 	ariga.io/atlas v0.33.1
